@@ -1,3 +1,4 @@
+#V2.0
 import time
 from machine import Pin
 from ota import OTAUpdater
@@ -9,10 +10,10 @@ ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
 led = Pin(2, Pin.OUT) #Pin 2 als Ausgang setzen
 
 while True:
-    
     ota_updater.download_and_install_update_if_available()
     
-    led.value(1)  #LED einschalten
-    time.sleep(10) #1 Sekunde warten
-    led.value(0)  #LED ausschalten
-    time.sleep(1) #1 Sekunde warten
+    for i in range(5):
+        led.value(1)
+        time.sleep(2)
+        led.value(0)
+        time.sleep(1)
